@@ -1,36 +1,26 @@
-// models/taskModel.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const taskSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  dueDate: {
-    type: Date,
-    required: true,
-  },
-  priority: {
-    type: String,
-    enum: ['Low', 'Medium', 'High'],
-    required: true,
-  },
-  status: {
-    type: String,
-    enum: ['Pending', 'In Progress', 'Completed'],
-    default: 'Pending',
-  }
-}, {
-  timestamps: true,
-},{
-  versionKey: false,
-}
-);
+const taskSchema = mongoose.Schema(
+    {
+        title: { type: String, required: true },
+        description: { type: String, required: true },
+        due_date: { type: Date, required: true },
+        priority: { type: String, enum: ['low', 'medium', 'high'], default: 'medium' },
+        status: { type: String, enum: ['pending', 'inprogress', 'completed'], default: 'pending' },
+        created_date: { type: Date, default: Date.now },
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        }
+    },
+    {
+      versionKey: false,
+    }
+  );
 
-const taskModel = mongoose.model('Task', taskSchema);
+const TaskModel = mongoose.model("task", taskSchema);
 
-module.exports = { taskModel };
+module.exports={
+    TaskModel  
+} 

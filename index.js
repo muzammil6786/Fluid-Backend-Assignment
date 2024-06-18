@@ -1,21 +1,40 @@
-const express = require("express");
-require("dotenv").config();
-const { connection } = require("./config/db");
-const {taskRouter} = require("./routes/task.routes");
-const {userRouter} = require("./routes/user.routes");
+const express = require('express');
+const cors = require('cors');
+const { connection } = require('./config/db');
+const { userRouter } = require('./routes/user.routes');
+const { taskRouter } = require('./routes/task.routes');
+require('dotenv').config();
+const { specs, swaggerUi } = require("./SwaggerConfig");
 
 
 const app = express();
-app.use(express.json());
-app.use("/tasks", taskRouter);
-app.use("/users", userRouter);
 
-app.listen(process.env.port, async (req, res) => {
-  try {
-    await connection;
-    console.log(`Server is running at ${process.env.port}`);
-    console.log(`Connected to DB`);
-  } catch (err) {
-    console.log(err);
-  }
+app.use(express.json());
+app.use(cors());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+// API routes
+app.use('/users',userRouter);
+app.use('/tasks', taskRouter);
+
+
+
+app.get('/', (req, res) => {
+    res.send({ msg: 'Welcome to Task Management System' });
 });
+
+
+const server = app.listen(process.env.PORT || 3000, async () => {
+    try {
+        await connection;
+        console.log(`Connected to DB`);
+        console.log(`Server is running on port ${process.env.PORT || 3000}`);
+        console.log(`http://localhost:${process.env.PORT || 3000}`);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+module.exports={
+    server
+}
