@@ -33,8 +33,8 @@ Before you can set up the API locally, ensure you have the following installed:
 
 ## Installation
 
-1. Clone the repository:
-2. Install dependencies:npm install
+1. Clone the repository: git clone https://github.com/muzammil6786/Fluid-Backend-Assignment.git
+2. Install dependencies: npm install
 
 #Configuration
 Create a .env file in the root directory and configure the following environment variables
