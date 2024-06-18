@@ -43,29 +43,29 @@ MONGODB_URI= mongodb+srv://muzammil:<password>@cluster0.nwe9ct0.mongodb.net/task
 JWT_SECRET=your_jwt_secret
 REFRESH_JWT_SECRET=your_refresh_jwt_secret
 
-#Running the API
+##Running the API
 
 Start the API server:
 npm start
 The API will be running at http://localhost:8080.
 
-#API Documentation
+##API Documentation
 
 The API uses Swagger for documentation. Once the server is running, you can access the Swagger UI to explore the API endpoints at:
 
 http://localhost:8080/api-docs
 
-#Testing the API
+##Testing the API
 
 You can test the API endpoints using tools like Postman or through the Swagger UI. The Swagger UI provides a web-based interface where you can interact with the API endpoints directly.
 
-#Running Tests Locally
+##Running Tests Locally
 To run the automated tests for the API, use the following command:
 npm test
 
 This command will execute the tests defined in your project and report any issues. Make sure to have your development environment properly set up before running tests.
 
-#Example Requests
+##Example Requests
 
 User Endpoints
 User register:
@@ -88,7 +88,7 @@ User Logout:
 Endpoint: GET /users/logout
 Headers: Authorization: Bearer <your_token_here>
 
-#Task Endpoints
+##Task Endpoints
 Create a Task:
 
 Endpoint: POST /tasks
@@ -127,7 +127,7 @@ Endpoint: DELETE /tasks/{id}
 Headers: Authorization: Bearer <your_token_here>
 Parameters: id - The ID of the task you want to delete.
 
-#Project Structure
+##Project Structure
 task-management-system/
 │
 ├── config/
@@ -154,7 +154,7 @@ task-management-system/
 ├── package.json              # NPM dependencies and scripts
 └── index.js                  # Main server file
 
-#Additional Notes
+##Additional Notes
 
 Error Handling: The API includes basic error handling, but further improvements can be made to standardize and enhance error responses.
 Security: Ensure to keep your JWT_SECRET and REFRESH_JWT_SECRET secure and do not expose them publicly.
