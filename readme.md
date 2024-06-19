@@ -13,7 +13,8 @@ Welcome to the Task Management System API! This API allows you to manage tasks a
 - Additional Notes
 
 ## Live Deployed Server
-- The API is deployed and available live on Render at the following URL:
+- The API is deployed and available live on Render at the following URL: https://fluid-backend-assignment.onrender.com
+- Swagger URL : https://fluid-backend-assignment.onrender.com/api-docs/
 
 ```perl
 https://
